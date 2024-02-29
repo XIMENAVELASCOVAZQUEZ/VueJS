@@ -18,7 +18,7 @@ const reset = () => {
   counter.value=0;
 };
 
-const classCounter = computed(() => {
+const classCounter = () => {
   if(counter.value === 0){
     return 'zero'
   }
@@ -28,12 +28,12 @@ const classCounter = computed(() => {
   if(counter.value < 0) {
     return 'negative'
   }
-})
+};
 </script>
 
 <template>
   <h1>Hola {{ name.toUpperCase() }}</h1>
-  <h2 :class="classCounter">{{ counter }}</h2>
+  <h2 :class="classCounter()">{{ counter }}</h2>
   <button @click="increment">Aumentar</button>
   <button @click="decrement">Disminuir</button>
   <button @click="reset">Reset</button>
